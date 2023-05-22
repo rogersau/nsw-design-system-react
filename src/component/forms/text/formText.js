@@ -24,10 +24,10 @@ export const TextInput = ({
     ? (
       <textarea
         className={
-                `nsw-form__input ${className}`
-                + `${block ? ' nsw-form__input--block' : ''}`
-                + `${number ? ' nsw-form__input--number' : ''}`
-            }
+          `nsw-form__input ${className}`
+          + `${block ? ' nsw-form__input--block' : ''}`
+          + `${number ? ' nsw-form__input--number' : ''}`
+        }
         aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
         id={htmlId}
@@ -37,9 +37,9 @@ export const TextInput = ({
     : (
       <input
         className={
-            `nsw-form__input ${className}`
-            + `${block ? ' nsw-form__input--block' : ''}`
-            + `${number ? ' nsw-form__input--number' : ''}`
+          `nsw-form__input ${className}`
+          + `${block ? ' nsw-form__input--block' : ''}`
+          + `${number ? ' nsw-form__input--number' : ''}`
         }
         aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
@@ -56,7 +56,7 @@ TextInput.propTypes = {
   number: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['valid', 'invalid','default']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   type: PropTypes.string,
 };
 
@@ -80,7 +80,7 @@ export const FormGroupText = ({
   status, className, inputType, as, statusText, label, helper, htmlId, ...attributeOptions
 }) => (
   <FormGroup status={status} as={as} statusText={statusText} label={label} helper={helper} htmlId={htmlId}>
-    <TextInput status={status} htmlId={htmlId} {...attributeOptions} type={inputType} />
+    <TextInput status={status} htmlId={htmlId} {...attributeOptions} type={inputType} as={as} />
   </FormGroup>
 );
 

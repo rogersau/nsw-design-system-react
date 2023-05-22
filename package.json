@@ -1,8 +1,8 @@
 {
   "name": "nsw-ds-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reusable React Components from the NSW Design System",
-  "author": "digitalnsw",
+  "author": "James Rogers",
   "license": "MIT",
   "repository": "https://github.com/digitalnsw/nsw-design-system-react",
   "main": "dist/index.js",
