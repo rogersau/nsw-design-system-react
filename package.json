@@ -1,10 +1,10 @@
 {
-  "name": "nsw-ds-react",
+  "name": "@rogersau/nsw-ds-react",
   "version": "1.0.2",
-  "description": "Reusable React Components from the NSW Design System",
+  "description": "Reusable React Components from the NSW Design System. Forked from ",
   "author": "James Rogers",
   "license": "MIT",
-  "repository": "https://github.com/digitalnsw/nsw-design-system-react",
+  "repository": "https://github.com/rogersau/nsw-design-system-react",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -44,7 +44,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-id-generator": "^3.0.2",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^4.0.3"
   },
   "files": [
     "dist"

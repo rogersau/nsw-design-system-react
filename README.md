@@ -1,5 +1,9 @@
 # NSW Design System React Library
 
+## Changes
+- Bumped dependancies
+- Added support for TextArea in Form.
+
 [![npm version](https://badge.fury.io/js/nsw-ds-react.svg)](https://badge.fury.io/js/nsw-ds-react)
 
 ![alt text](https://www.digital.nsw.gov.au/sites/default/files/2021-04/nsw-ds-react_0.jpg "NSW DS + React Logo")
@@ -7,7 +11,7 @@
 ## Install
 
 ```bash
-npm install nsw-ds-react nsw-design-system
+npm install @rogersau123/nsw-ds-react nsw-design-system
 ```
 
 
