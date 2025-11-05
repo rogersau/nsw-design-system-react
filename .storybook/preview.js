@@ -4,7 +4,7 @@ import { create } from '@storybook/theming';
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   viewport: {
-    viewports: MINIMAL_VIEWPORTS,
+    options: MINIMAL_VIEWPORTS,
   },
   viewMode: 'docs',
 }
