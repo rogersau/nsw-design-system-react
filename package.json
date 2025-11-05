@@ -31,10 +31,10 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy-storybook": "build-storybook && gh-pages -d storybook-static",
     "storybook": "storybook dev -p 6006",
-  "build:ts": "tsup",
-  "dev:ts": "tsup --watch",
-  "build:ts-test": "tsup src/ts-test-entry.ts --format esm,cjs --clean",
-  "build:dts": "tsc -p tsconfig.types.json",
+    "build:ts": "tsup",
+    "dev:ts": "tsup --watch",
+    "build:ts-test": "tsup src/ts-test-entry.ts --format esm,cjs --clean",
+    "build:dts": "tsc -p tsconfig.types.json",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
     "@mdx-js/loader": "^3.1.1",
     "@storybook/addon-docs": "8.6.14",
     "@storybook/addon-essentials": "^8.6.14",

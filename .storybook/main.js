@@ -25,13 +25,22 @@ module.exports.webpackFinal = async (config) => {
   const path = require('path');
 
   // Ensure we have a rule for JS/JSX to use babel-loader
+  // Add babel-loader for JS/JSX/TS/TSX so Storybook can consume TypeScript
+  // stories and components directly from `src`.
   config.module.rules.push({
-    test: /\.(js|jsx)$/,
+    test: /\.(mjs|jsx?|tsx?)$/,
     include: path.resolve(__dirname, '../src'),
     use: {
       loader: require.resolve('babel-loader'),
       options: {
-        presets: [require.resolve('@babel/preset-react')],
+        // Use preset-react (automatic runtime) and preset-typescript to
+        // allow transpiling .ts/.tsx without a separate ts-loader.
+        presets: [
+          require.resolve('@babel/preset-react'),
+          require.resolve('@babel/preset-typescript'),
+        ],
+        // Cache for faster rebuilds
+        cacheDirectory: true,
       },
     },
   });
@@ -42,6 +51,17 @@ module.exports.webpackFinal = async (config) => {
   // still have MDX parse/indexing errors, remove this JS rule above and let
   // Storybook manage MDX. For now, we avoid adding a custom MDX rule to keep
   // Storybook's internal MDX indexer intact.
+
+  // Ensure .ts and .tsx are resolvable without extensions in imports
+  config.resolve = config.resolve || {};
+  config.resolve.extensions = Array.from(new Set([
+    '.ts',
+    '.tsx',
+    '.mjs',
+    '.js',
+    '.jsx',
+    '.json',
+  ].concat(config.resolve.extensions || [])));
 
   return config;
 };
