@@ -18,6 +18,24 @@ export interface CalloutProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
+/**
+ * Callout
+ *
+ * A small informational block used to call out content. Renders a heading
+ * (configurable level) and body content.
+ *
+ * @param props - Component props
+ * @param props.title - The title text shown in the heading
+ * @param props.level - The heading level to render (1-6). Defaults to 4
+ * @param props.children - Body content rendered inside the callout
+ * @param props.className - Optional additional CSS class names
+ * @returns A React element representing the callout
+ *
+ * @example
+ * <Callout title="Note" level={3}>
+ *   <p>Additional information</p>
+ * </Callout>
+ */
 export const Callout: React.FC<CalloutProps> = ({
   title,
   level = 4,

@@ -7,7 +7,6 @@
     "allowJs": false
   },
   "include": [
-    "src/index.ts",
-    "src/component/button/button.tsx"
+    "src/**/*"
   ]
 }

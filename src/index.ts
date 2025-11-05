@@ -20,4 +20,16 @@ export type { BreadcrumbsProps, BreadcrumbItem } from './component/breadcrumbs/b
 // Prefer our TypeScript Callout when building the TS entry
 export { default as Callout } from './component/callout/callout';
 export type { CalloutProps } from './component/callout/callout';
+// Prefer our TypeScript Card when building the TS entry
+export { default as Card, CardContent, CardCopy, CardImage, CardHeader, CardTag, CardDate, CardDivider, CardLink, CardFooter, CardTitle } from './component/card/card';
+export type { CardProps } from './component/card/card';
+// Prefer our TypeScript ContentBlock when building the TS entry
+export { default as ContentBlock, ContentBlockImage, ContentBlockIcon, ContentBlockCopy, ContentBlockHeading } from './component/content-block/contentBlock';
+export type { ContentBlockProps } from './component/content-block/contentBlock';
+// Prefer our TypeScript Footer when building the TS entry
+export { default as Footer, FooterLinks, FooterLower, FooterSectionGroup, FooterUpper } from './component/footer/footer';
+export type { FooterLink } from './component/footer/footer';
+// Prefer our TypeScript GlobalAlert when building the TS entry
+export { default as GlobalAlert } from './component/global-alert/globalAlert';
+export type { GlobalAlertProps } from './component/global-alert/globalAlert';
 // End of temporary TypeScript entry
