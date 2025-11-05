@@ -3,19 +3,11 @@ module.exports = {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  core: {
-    builder: 'webpack5',
-  },
   stories: [
-    // Temporarily exclude MDX story files to avoid MDX indexer compatibility issues.
-    // We'll re-enable MDX once MDX3/CSF indexer compatibility is resolved.
+    '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-docs'
-  ]
+  addons: ['@storybook/addon-links', '@storybook/addon-docs']
 }
 
 // Add a minimal webpackFinal to ensure JSX and MDX are transpiled when Storybook's

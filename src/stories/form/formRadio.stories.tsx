@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { FormGroupRadio } from '../../component/forms/radio/formRadio';
 
 const meta: Meta<typeof FormGroupRadio> = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Accordion as AccordionComponent, AccordionGroup } from '../index';
 
 type Item = { header: string; body: React.ReactNode };

@@ -1,8 +1,13 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import React from 'react';
 
-<Meta title="Introduction/Getting Started" />
+export default {
+  title: 'Introduction/Getting Started',
+};
 
-<style>{`
+export const GettingStarted: React.FC = () => {
+  return (
+    <div>
+      <style>{`
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -103,43 +108,54 @@ import { Meta } from '@storybook/addon-docs/blocks';
     display: inline-block;
   }
 
-
 `}</style>
 
-# NSW DS React Components Library
+      <h1>NSW DS React Components Library</h1>
 
-The NSW Design System React is built on top of the base NSW design system. The library reuses existing vanilla js and css implementation rewritten in JSX. NSW DS React provides the exact same UI design, accessibility features and cross-browser compatibility of the base library.
+      <p>
+        The NSW Design System React is built on top of the base NSW design system. The
+        library reuses existing vanilla js and css implementation rewritten in JSX. NSW
+        DS React provides the exact same UI design, accessibility features and
+        cross-browser compatibility of the base library.
+      </p>
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context. That makes it easy to develop hard-to-reach states. This also gives an easy documentation to install and to use the library.
+      <p>
+        Storybook helps you build UI components in isolation from your app's business
+        logic, data, and context. That makes it easy to develop hard-to-reach states.
+        This also gives an easy documentation to install and to use the library.
+      </p>
 
+      <h2>Install</h2>
 
-## Install
+      <pre>
+        <code>{`npm install nsw-ds-react nsw-design-system`}</code>
+      </pre>
 
-```bash
-npm install nsw-ds-react nsw-design-system
-```
+      <h3>Add the styles</h3>
+      <p>
+        Add the styles separately in your main <code>App.js</code> file
+      </p>
 
+      <pre>
+        <code>{`import 'nsw-design-system/dist/css/main.css'`}</code>
+      </pre>
 
-Add the styles separately in your main `App.js` file
+      <h3>Icons & fonts</h3>
+      <p>In your <code>index.html</code> document add this line of code inside the &lt;head&gt; tag. Or install the icon and font packages from npm.</p>
 
-```js
-import 'nsw-design-system/dist/css/main.css'
-```
+      <pre>
+        <code>{`<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`}</code>
+      </pre>
 
+      <h2>Usage</h2>
 
-In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-design-icons-iconfont) and [font](https://www.npmjs.com/package/@fontsource/public-sans) from npm
-```
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
+      <p>Refer to individual components usage</p>
 
-## Usage
+      <p>Here's how you import the component:</p>
 
-Refer to individual components usage
-
-Here's how you import the component:
-```jsx
-import React, { Component } from 'react'
+      <pre>
+        <code>{`import React, { Component } from 'react'
 
 import { Callout } from 'nsw-ds-react'
 
@@ -151,5 +167,11 @@ class Example extends Component {
      </Callout>
     )
   }
-}
-```
+}`}</code>
+      </pre>
+
+    </div>
+  );
+};
+
+(GettingStarted as any).storyName = 'Introduction / Getting Started';

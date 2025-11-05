@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { ProgressIndicator as ProgressIndicatorComponent } from '../../component/forms/progress-indicator/progressIndicator';
 
 const meta: Meta<typeof ProgressIndicatorComponent> = {

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { FormGroupSelect } from '../../component/forms/select/formSelect';
 
 const meta: Meta<typeof FormGroupSelect> = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Header } from '../component/header/header';
 import { Masthead } from '../component/header/masthead';
 import { SkipTo } from '../component/header/skipTo';
