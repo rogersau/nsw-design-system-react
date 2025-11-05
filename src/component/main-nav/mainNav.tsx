@@ -1,8 +1,5 @@
 import React, { useId, useEffect } from 'react';
 
-// Type workaround for nsw-design-system Navigation
-const Navigation = require('nsw-design-system/src/main').Navigation as any;
-
 /**
  * Navigation sub-item (level 3)
  */
@@ -300,7 +297,23 @@ export const MainNav = ({ navItems, megaMenu, className = '', ...attributeOption
   const navBaseId = useId();
 
   useEffect(() => {
-    new Navigation().init();
+    // Only run in the browser. Use dynamic ESM import to avoid `require` in Vite.
+    if (typeof window === 'undefined') return;
+
+    import('nsw-design-system/src/main')
+      .then((mod) => {
+        const NavCtor = (mod as any).Navigation;
+        if (typeof NavCtor === 'function') {
+          try {
+            new NavCtor().init();
+          } catch (err) {
+            // swallow init errors in Storybook/dev; navigation should still render
+          }
+        }
+      })
+      .catch(() => {
+        // If the package can't be resolved in the current environment, ignore.
+      });
   }, []);
 
   return (

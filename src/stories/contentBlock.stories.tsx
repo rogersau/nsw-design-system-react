@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import ContentBlock, { ContentBlockCopy } from '../component/content-block/contentBlock';
 
 const meta: Meta<typeof ContentBlock> = {

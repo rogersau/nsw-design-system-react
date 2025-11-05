@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-// Type workaround for nsw-design-system initSite
-const initSite = require('nsw-design-system/src/main').initSite as any;
-
 /**
  * Properties for Header component
  */
@@ -88,8 +85,21 @@ export class Header extends Component<HeaderProps> {
   };
 
   componentDidMount() {
-    if (this.props.search) {
-      initSite();
+    if (this.props.search && typeof window !== 'undefined') {
+      // Dynamically import the nsw-design-system runtime only in the browser.
+      // `require` is not available in the Vite/ESM environment used by Storybook
+      // and modern bundlers — dynamic import avoids `ReferenceError: require`.
+      import('nsw-design-system/src/main')
+        .then((mod) => {
+          const init = (mod as any).initSite;
+          if (typeof init === 'function') {
+            init();
+          }
+        })
+        .catch(() => {
+          // swallow import errors in Storybook/dev where the package may be
+          // hoisted differently or not available — components should still render.
+        });
     }
   }
 

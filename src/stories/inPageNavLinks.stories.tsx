@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InPageNavLinks as InPageNavLinksComp } from '../component/in-page-navigation/inPageNavLinks';
 
 const meta: Meta<typeof InPageNavLinksComp> = {

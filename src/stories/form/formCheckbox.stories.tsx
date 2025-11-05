@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormGroupCheckbox } from '../../component/forms/checkbox/formCheckbox';
 
 const meta: Meta<typeof FormGroupCheckbox> = {

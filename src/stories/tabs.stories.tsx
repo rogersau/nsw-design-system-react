@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Tabs, { TabItemWrapper, TabItem, TabSection } from '../component/tabs/tabs';
 
 const meta: Meta<typeof Tabs> = {
