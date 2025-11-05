@@ -1,4 +1,7 @@
-import React, { useState, useId } from 'react';
+import React, { useState, useId, useContext, useEffect } from 'react';
+
+// Context used by AccordionGroup to broadcast expand/collapse commands
+const AccordionGroupContext = React.createContext<{ openState: boolean | null; stamp: number }>({ openState: null, stamp: 0 });
 
 /**
  * Accordion
@@ -44,6 +47,9 @@ export const Accordion: React.FC<AccordionProps> = ({
   const reactId = useId();
   const uID = `accordion-${reactId.replace(/:/g, '')}`;
 
+  // listen for group expand/collapse commands
+  useAccordionGroupSignal(setIsOpen);
+
   return (
     <>
       <div className="nsw-accordion__title">
@@ -60,7 +66,7 @@ export const Accordion: React.FC<AccordionProps> = ({
             aria-hidden="true"
             {...({ focusable: 'false' } as any)}
           >
-            keyboard_arrow_right
+            {isOpen ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}
           </i>
         </button>
       </div>
@@ -76,24 +82,85 @@ export const Accordion: React.FC<AccordionProps> = ({
   );
 };
 
+// Make Accordion respond to AccordionGroup expand/collapse commands
+export const useAccordionGroupSignal = (setIsOpen: (v: boolean) => void) => {
+  const ctx = useContext(AccordionGroupContext);
+  useEffect(() => {
+    if (ctx.openState !== null) {
+      setIsOpen(ctx.openState);
+    }
+    // only react when stamp changes or openState changes
+  }, [ctx.stamp, ctx.openState, setIsOpen]);
+};
+
 export interface AccordionGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
+  /**
+   * Show the expand/collapse controls in the top-right of the group.
+   * Set to `false` to hide the controls.
+   * @default true
+   */
+  showControls?: boolean;
 }
 
 /**
  * AccordionGroup
  *
  * Groups multiple Accordion children under the `.nsw-accordion` wrapper.
+ * Provides expand/collapse-all controls which broadcast to child Accordions.
  */
 export const AccordionGroup: React.FC<AccordionGroupProps> = ({
   className,
   children,
+  showControls = true,
   ...attributeOptions
-}) => (
-  <div className={`nsw-accordion ready ${className ? className : ''}`} {...attributeOptions}>
-    {children}
-  </div>
-);
+}) => {
+  const [openState, setOpenState] = useState<boolean | null>(null);
+  const [stamp, setStamp] = useState(0);
+
+  const expandAll = () => {
+    setOpenState(true);
+    setStamp((s) => s + 1);
+  };
+
+  const collapseAll = () => {
+    setOpenState(false);
+    setStamp((s) => s + 1);
+  };
+
+  return (
+    <AccordionGroupContext.Provider value={{ openState, stamp }}>
+      <div className={`nsw-accordion ready ${className ? className : ''}`} {...attributeOptions}>
+        {showControls && (
+          <div className="nsw-accordion__controls" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
+            <a
+              href="#"
+              className="nsw-link"
+              onClick={(e) => {
+                e.preventDefault();
+                expandAll();
+              }}
+              style={{ marginRight: '1rem' }}
+            >
+              Expand all
+            </a>
+            <a
+              href="#"
+              className="nsw-link"
+              onClick={(e) => {
+                e.preventDefault();
+                collapseAll();
+              }}
+            >
+              Collapse all
+            </a>
+          </div>
+        )}
+        {children}
+      </div>
+    </AccordionGroupContext.Provider>
+  );
+};
 
 export default Accordion;
