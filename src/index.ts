@@ -57,3 +57,7 @@ export { FormHelper, FormLabel } from './component/forms/group-elements';
 // Loader
 export { Loader } from './component/loader/loader';
 export type { LoaderProps } from './component/loader/loader';
+
+// Dialog
+export { DialogComponent as Dialog } from './component/dialog/dialog';
+export type { DialogProps } from './component/dialog/dialog';

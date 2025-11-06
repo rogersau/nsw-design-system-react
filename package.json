@@ -36,6 +36,8 @@
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@mdx-js/loader": "^3.1.1",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-tabs": "^1.0.6",
     "@storybook/addon-docs": "^10.0.5",
     "@storybook/addon-links": "10.0.5",
     "@storybook/react-vite": "^10.0.5",
@@ -48,15 +50,14 @@
     "gh-pages": "^3.2.3",
     "npm-run-all": "^4.1.5",
     "nsw-design-system": "^3.0.2",
-  "@radix-ui/react-tabs": "^1.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-id-generator": "^3.0.2",
     "react-scripts": "^5.0.1",
     "storybook": "^10.0.5",
-    "vite": "^7.2.0",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^7.2.0"
   },
   "files": [
     "dist"
