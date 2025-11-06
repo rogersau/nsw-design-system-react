@@ -60,7 +60,6 @@ export const GroupError: Story = {
       {
         value: '2',
         text: 'Option 2',
-        selected: true,
       },
       {
         value: '3',

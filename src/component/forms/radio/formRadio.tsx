@@ -80,7 +80,7 @@ export const RadioItem = ({
   const actualId = uniqueID || `radio-${generatedId}`;
 
   return (
-    <div className={`nsw-form__radio ${className}`}>
+    <>
       <input
         className="nsw-form__radio-input"
         type="radio"
@@ -93,7 +93,7 @@ export const RadioItem = ({
       <label className="nsw-form__radio-label" htmlFor={actualId}>
         {text}
       </label>
-    </div>
+      </>
   );
 };
 
@@ -210,7 +210,7 @@ export const FormGroupRadio = ({
       <fieldset className={`nsw-form__fieldset ${className}`} {...attributeOptions}>
         {label && <legend><span>{label}</span></legend>}
         {helper && <FormHelper htmlId={actualId}>{helper}</FormHelper>}
-        <div {...ariaProps}>
+
           {options.map((option, index) => (
             <RadioItem
               key={`${actualId}-radio-${index}`}
@@ -221,7 +221,7 @@ export const FormGroupRadio = ({
               selected={option.selected}
             />
           ))}
-        </div>
+
         {actualStatus !== 'default' && statusText && (
           <FormHelper htmlId={actualId} status={actualStatus}>
             {statusText}

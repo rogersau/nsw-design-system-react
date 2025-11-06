@@ -79,20 +79,20 @@ export const CheckboxItem = ({
   const actualId = uniqueID || `checkbox-${generatedId}`;
 
   return (
-    <div className={`nsw-form__checkbox ${className}`}>
+    <>
       <input
         className="nsw-form__checkbox-input"
         type="checkbox"
         value={value}
         name={actualId}
         id={actualId}
-        checked={checked}
+        defaultChecked={checked}
         {...attributeOptions}
       />
       <label className="nsw-form__checkbox-label" htmlFor={actualId}>
         {text}
       </label>
-    </div>
+    </>
   );
 };
 
