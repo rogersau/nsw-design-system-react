@@ -33,7 +33,7 @@ jobs:
         run: pnpm run build-storybook
 
       - name: Upload Storybook artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: storybook-static
 
@@ -43,4 +43,4 @@ jobs:
     environment: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
