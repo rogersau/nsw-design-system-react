@@ -1,5 +1,7 @@
 # NSW Design System React Library
 
+Adapted for MedSync applications at NSW Health.
+
 ## Changes
 - Bumped dependancies
 - Added support for TextArea in Form.

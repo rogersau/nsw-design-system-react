@@ -1,12 +1,16 @@
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  // Switch to the Vite builder for Storybook
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  "addons": [
-    "@whitespace/storybook-addon-html",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/theme",
-  ]
+  addons: ['@storybook/addon-links', '@storybook/addon-docs']
 }
+
+module.exports.viteFinal = async (config, { configType }) => {
+  return config;
+};
