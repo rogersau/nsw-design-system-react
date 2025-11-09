@@ -100,6 +100,13 @@ export const Combobox = ({
   const listboxRef = useRef<HTMLUListElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // Merge user-provided style with a default right padding so the chevron
+  // doesn't overlap typed text. If the caller provided paddingRight, keep it.
+  const mergedInputStyle: React.CSSProperties = {
+    ...(style || {}),
+    paddingRight: (style && (style as any).paddingRight) ? (style as any).paddingRight : '36px',
+  };
+
   useEffect(() => {
     if (controlledValue !== undefined) {
       setInputValue(controlledValue as string);
@@ -199,7 +206,7 @@ export const Combobox = ({
         id={actualId}
         type="text"
         className={`nsw-form__input ${className}`}
-        style={style}
+        style={mergedInputStyle}
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
@@ -208,6 +215,29 @@ export const Combobox = ({
         {...ariaProps}
         {...attributeOptions}
       />
+      {/* Chevron toggle button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen((s) => !s)}
+        aria-label={isOpen ? 'Close options' : 'Open options'}
+        className='material-icons'
+        style={{
+          position: 'absolute',
+          right: 8,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          border: 'none',
+          background: 'transparent',
+          padding: 4,
+          margin: 0,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+      </button>
       {isOpen && filteredOptions.length > 0 && (
         <ul
           ref={listboxRef}

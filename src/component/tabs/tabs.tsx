@@ -121,7 +121,7 @@ TabLink.displayName = 'TabLink';
 export const TabItem: React.FC<{ urlHash: string; title: string }> = ({ urlHash, title }) => (
   <li className="nsw-tabs__list-item">
     <RadixTabs.Trigger value={urlHash} asChild>
-      <TabLink href={`#${urlHash}`} className="nsw-tabs__link">
+      <TabLink data-hash={urlHash} className="nsw-tabs__link">
         {title}
       </TabLink>
     </RadixTabs.Trigger>
