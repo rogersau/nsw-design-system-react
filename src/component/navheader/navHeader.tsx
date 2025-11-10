@@ -43,11 +43,7 @@ export default function PageHeading(props: PageHeadingProps) {
                 className='nsw-icon-button'
                 onClick={handleBackClick}
                 aria-label='Back'
-              ><span className="material-icons nsw-material-icons nsw-material-icons--30">
-                
-                arrow_back
-
-              </span>
+              ><span className="material-icons nsw-material-icons nsw-material-icons--30">arrow_back</span>
               </button>
             ) : (
               <div />
