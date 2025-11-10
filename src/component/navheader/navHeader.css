@@ -1,0 +1,63 @@
+.page-heading-title {
+  height: 22px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.408px;
+  color: var(--nsw-brand-dark);
+  flex-grow: 1;
+  z-index: 0;
+}
+
+.back-icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 100 !important;
+  position: relative;
+}
+.cancel-icon {
+  width: 22px;
+    height: 22px;
+    cursor: pointer;
+    margin: 3px;
+    z-index: 100 !important;
+    position: relative;
+}
+.page-header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Adjust as needed */
+}
+
+/* Ensure the small wrapper boxes align their children centrally */
+.nsw-docs__box {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* Icon button styling to match header height and vertically center svg */
+.nsw-icon-button {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* optional sizing when you want a larger clickable area */
+.nsw-icon-button svg {
+  display: block;
+}
